@@ -5,8 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" 
+        rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/dist/style.css">
+    <script defer src="/dist/script.js"></script>
 </head>
 <body>
-    
+    <header class="header container">
+        <div class="header__title">
+            <a href="#">
+                <h1>ISM</h1>
+                <span class="header__subtitle">Homecrafted jewelry</span>
+            </a>
+        </div>
+        <nav class="navigation container">
+            <ul class="navigation__items">
+                <li class="navigation__link"><a href="#">HOME</a></li>
+                <li class="navigation__link"><a href="#">PRODUCTS</a></li>
+            </ul>
+        </nav>
+        <fieldset
+            class="header__toggle toggle"
+            aria-label="theme toggle"
+            role="radiogroup"
+        >
+        <label for="dark">Dark Mode <span class="visually-hidden">On</span></label>
+        <div class="toggle__wrapper">
+            <input type="radio" name="theme" id="dark" />
+            <input type="radio" name="theme" id="light" />
+            <span aria-hidden="true" class="toggle__background"></span>
+            <span aria-hidden="true" class="toggle__button"></span>
+        </div>
+        <label for="light" class="visually-hidden">Dark Mode Off</label>
+      </fieldset>
+    </header>
+
+    </header>
+
+    <main>
+        <section></section>
+    </main>
 </body>
 </html>
