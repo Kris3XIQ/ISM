@@ -53,3 +53,59 @@ for (let i = 0; i < radioButtons.length; i++) {
         }
     });
 }
+
+// Navbar Functionality
+const header = document.querySelector('header');
+window.addEventListener("scroll", function(){
+    header.classList.toggle("sticky", window.scrollY > 0)
+});
+
+// Slideshow Functionality
+const HomePageSlider = () => {
+    const left = document.querySelector('.sliderarrow-prev');
+    const right = document.querySelector('.sliderarrow-next');
+    const slider = document.querySelector('.slideshow__slider');
+
+    const indicatorParent = document.querySelector('.slideshow__controller ul');
+    const indicators = document.querySelectorAll('.slideshow__controller li');
+    let index = 0;
+
+    indicators.forEach((indicator, i) => {
+        indicator.addEventListener('click', () => {
+            console.log(index)
+            document.querySelector('.slideshow__selected').classList.remove('slideshow__selected');
+            indicator.classList.add('slideshow__selected');
+            //slider.style.transform = 'translateX(' + (i) * - 100 + '%)';
+            index = i;
+            // Sort the right image ontop
+            document.querySelector('.slideshow__image').classList.remove('slideshow__image')
+            slider.children[index].classList.add('slideshow__image');
+        });
+    });
+
+    left.addEventListener('click', function() {
+        console.log(index)
+        index = (index > 0) ? index - 1 : 2;
+        // Sort the right image ontop
+        document.querySelector('.slideshow__image').classList.remove('slideshow__image');
+        slider.children[index].classList.add('slideshow__image');
+        // Sort the controller to match current image
+        document.querySelector('.slideshow__selected').classList.remove('slideshow__selected');
+        indicatorParent.children[index].classList.add('slideshow__selected');
+        //slider.style.transform = 'translateX(' + (index) * - 33.33 + '%)';
+    });
+
+    right.addEventListener('click', function() {
+        console.log(index)
+        index = (index < 3 - 1) ? index + 1 : 0;
+        // Sort the right image ontop
+        document.querySelector('.slideshow__image').classList.remove('slideshow__image');
+        slider.children[index].classList.add('slideshow__image');
+        // Sort the controller to match current image
+        document.querySelector('.slideshow__selected').classList.remove('slideshow__selected');
+        indicatorParent.children[index].classList.add('slideshow__selected');
+        //slider.style.transform = 'translateX(' + (index) * - 33.33 + '%)';
+    });
+}
+
+HomePageSlider();

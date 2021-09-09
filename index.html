@@ -14,19 +14,27 @@
         rel="stylesheet"
     />
 
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/26d4a64054.js" crossorigin="anonymous"></script>
+
+    <!-- Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Styles -->
     <link rel="stylesheet" href="/dist/style.css">
     <script defer src="/dist/script.js"></script>
 </head>
 <body>
-    <header class="header container">
+    <!-- Header -->
+    <header class="header">
         <div class="header__title">
             <a href="#">
                 <h1>ISM</h1>
-                <span class="header__subtitle">Homecrafted jewelry</span>
+                <span class="header__subtitle">HOMECRAFTED JEWELRY</span>
             </a>
         </div>
-        <nav class="navigation container">
+        <nav class="navigation">
             <ul class="navigation__items">
                 <li class="navigation__link"><a href="#">HOME</a></li>
                 <li class="navigation__link"><a href="#">PRODUCTS</a></li>
@@ -37,21 +45,111 @@
             aria-label="theme toggle"
             role="radiogroup"
         >
-        <label for="dark">Dark Mode <span class="visually-hidden">On</span></label>
-        <div class="toggle__wrapper">
-            <input type="radio" name="theme" id="dark" />
-            <input type="radio" name="theme" id="light" />
-            <span aria-hidden="true" class="toggle__background"></span>
-            <span aria-hidden="true" class="toggle__button"></span>
+            <label for="dark">Dark Mode <span class="visually-hidden">On</span></label>
+            <div class="toggle__wrapper">
+                <input type="radio" name="theme" id="dark" />
+                <input type="radio" name="theme" id="light" />
+                <span aria-hidden="true" class="toggle__background"></span>
+                <span aria-hidden="true" class="toggle__button"></span>
+            </div>
+            <label for="light" class="visually-hidden">Dark Mode Off</label>
+        </fieldset>
+    </header>
+
+    <!-- Slider-->
+    <div class="slideshow__container">
+        <div class="slideshow__carousel">
+            <div class="slideshow__slider">
+                <section class="slideshow__image"><img src="media/images/img1.jpg"></section>
+                <section><img src="media/images/img2.jpg"></section>
+                <section><img src="media/images/img3.jpg"></section>
+            </div>
+            <div class="slideshow__controller">
+                <div class="sliderarrow-next">
+                    <div class="sliderarrow-next__top"></div>
+                    <div class="sliderarrow-next__bot"></div>
+                </div>
+                <div class="sliderarrow-prev">
+                    <div class="sliderarrow-prev__top"></div>
+                    <div class="sliderarrow-prev__bot"></div>
+                </div>
+                <ul>
+                    <li class="slideshow__selected"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
         </div>
-        <label for="light" class="visually-hidden">Dark Mode Off</label>
-      </fieldset>
-    </header>
+    </div>
 
-    </header>
-
+    <!-- Main Content, including sections -->
     <main>
-        <section></section>
+        <div class="section__wrapper">
+            <section class="section__area1"></section>
+        </div>
+            <!-- Footer section -->
+            <footer class="footer">
+                <div class="footer__wrapper">
+                    <div class="footer__row1">
+                        <div class="footer__row1__column1">
+                            <h1>Join our mailing list</h1>
+                            <div class="footer__column1__form">
+                                <form action="" id="email-form" name="email-form" data-name="Email Form">
+                                    <div class="form__group">
+                                        <input type="input" class="form__field" placeholder="Name" name="name" id="name" maxlength="=256" required />
+                                        <label for="name" class="form__label">NAME</label>
+                                    </div>
+                                    <div class="form__group">
+                                        <input type="input" class="form__field" placeholder="Email" name="email" id="email" maxlength="=256" required />
+                                        <label for="name" class="form__label">EMAIL</label>
+                                        <input type="submit" value="&#xf1d8" datra-wait="Plesae wait..." class="far fa-paper-plane">
+                                    </div>
+                                    <!-- <input class="form__submit" type="submit" value="SUBSCRIBE" data-wait="Please wait...">
+                                    <i class="fa fa-paper-plane"></i> -->
+                                </form>
+                            </div>
+                        </div>
+                        <div class="footer__row1__column2"></div>
+                        <!-- <div class="footer__row1__column3"></div>
+                        <div class="footer__row1__column4"></div> -->
+                    </div>
+                    <div class="footer__row2">
+                        <div class="footer__row2__column1">
+                            <div class="footer__logo">
+                                <h1>ISM</h1>
+                                <h4>Handmade Jewelry, self designed and all Made in Sweden</h4>
+                            </div>
+                        </div>
+                        <div class="footer__row2__column2">
+                            <ul class="footer__about">
+                                <li><a href="#">ABOUT</a></li>
+                                <li><a href="#">JOBS</a></li>
+                                <li><a href="#">DOCS</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer__row2__column3">
+                            <ul class="footer__terms-privacy">
+                                <li><a href="#">TERMS AND CONDITIONS</a></li>
+                                <li><a href="#">PRIVACY POLICY</a></li>
+                                <li><a href="#">COOKIE POLICY</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer__row2__column4">
+                            <h2>FIND US HERE!</h2>
+                            <ul class="footer__socials">
+                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="#" class="fa fa-instagram"></a></li>
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                                <li><a href="#" class="fa fa-linkedin"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer__copyright">
+                        <h6>Copyright &#169; 2021 all rights reserved</h6>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </main>
 </body>
 </html>
