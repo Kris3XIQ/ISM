@@ -108,4 +108,11 @@ const HomePageSlider = () => {
     });
 }
 
+// Footer button, scroll to top
+const scrollToTop = () => {
+    button = document.getElementById("scrollToTopButton");
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; //Chrome, Firefox, IE & Opera
+}
+
 HomePageSlider();

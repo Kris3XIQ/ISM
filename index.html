@@ -19,15 +19,17 @@
     <script src="https://kit.fontawesome.com/26d4a64054.js" crossorigin="anonymous"></script>
 
     <!-- Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <!-- Styles -->
     <link rel="stylesheet" href="/dist/style.css">
     <script defer src="/dist/script.js"></script>
+    
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header id="header__main" class="header">
         <div class="header__title">
             <a href="#">
                 <h1>ISM</h1>
@@ -90,6 +92,9 @@
             <!-- Footer section -->
             <footer class="footer">
                 <div class="footer__wrapper">
+                    <div class="return-to-top-wrapper">
+                        <a href="#" id="scrollToTopButton" class="return-to-top" onclick=scrollToTop()>Back to top</a>
+                    </div>
                     <div class="footer__row1">
                         <div class="footer__row1__column1">
                             <h1>Join our mailing list</h1>
@@ -121,26 +126,29 @@
                             </div>
                         </div>
                         <div class="footer__row2__column2">
+                            <div class="footer__group__title">Can we help?</div>
                             <ul class="footer__about">
-                                <li><a href="#">ABOUT</a></li>
-                                <li><a href="#">JOBS</a></li>
-                                <li><a href="#">DOCS</a></li>
+                                <li><a target="_blank" href="#" class="footer__link">About</a></li>
+                                <li><a target="_blank" href="#" class="footer__link">Jobs</a></li>
+                                <li><a target="_blank" href="#" class="footer__link">Docs</a></li>
                             </ul>
                         </div>
                         <div class="footer__row2__column3">
+                            <div class="footer__group__title">Can we help?</div>
                             <ul class="footer__terms-privacy">
-                                <li><a href="#">TERMS AND CONDITIONS</a></li>
-                                <li><a href="#">PRIVACY POLICY</a></li>
-                                <li><a href="#">COOKIE POLICY</a></li>
+                                <li><a target="_blank" href="#" class="footer__link">Terms and Condition</a></li>
+                                <li><a target="_blank" href="#" class="footer__link">Privacy Policy</a></li>
+                                <li><a target="_blank" href="#" class="footer__link">Cookie Policy</a></li>
                             </ul>
                         </div>
                         <div class="footer__row2__column4">
-                            <h2>FIND US HERE!</h2>
+                            <div class="footer__group__title">Find us on</div>
                             <ul class="footer__socials">
-                                <li><a href="#" class="fa fa-facebook"></a></li>
-                                <li><a href="#" class="fa fa-instagram"></a></li>
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                                <li><a href="#" class="fa fa-linkedin"></a></li>
+                                <li><a target="_blank" href="#" class="footer__link__withicon facebook">Facebook</a></li>
+                                <li><a target="_blank" href="#" class="footer__link__withicon instagram">Instagram</a></li>
+                                <li><a target="_blank" href="#" class="footer__link__withicon twitter">Twitter</a></li>
+                                <li><a target="_blank" href="#" class="footer__link__withicon linkedin">Linkedin</a></li>
+                                <li><a target="_blank" href="#" class="footer__link__withicon youtube">YouTube</a></li>
                             </ul>
                         </div>
                     </div>
