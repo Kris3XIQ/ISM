@@ -7,60 +7,49 @@
     top: 0;
     left: 0;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.6s;
-    padding: 40px 100px;
+    height: rem(120);
+    transition: all .2s ease-out;
     background: var(--navbar-gradient);
     z-index: 100;
+    &__logo {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        @include breakpoint(xlarge) {}
+    }
 
     @include breakpoint(medium) {
         justify-content: space-between;
         align-items: center;
     }
-
-    &__title {
-        width: 100%;
-
-        @include breakpoint(medium) {
-        width: auto;
+    &__navigation {
+        .navigation__items {
+            left: 0;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: rem(70);
+            .navigation__link {
+                display: inline-block;
+                font-size: rem(12);
+                height: rem(50);
+                padding: 0 10px;
+                text-transform: uppercase;
+                z-index: 10;
+            }
         }
     }
-
-    &__subtitle {
-        font-size: rem(14);
-        font-weight: 700;
-        color: var(--text-color2);
-    }
-}
 .header:hover {
     background: var(--background);
     transition: 0s;
 }
 .sticky {
-    padding: 5px 100px;
     background: var(--background);
-}
-
-.navigation {
-    display: flex;
-    &__items {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    &__link {
-        position: relative;
-        list-style: none;
-        a {
-            position: relative;
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--text-color1);
-            letter-spacing: 2px;
-            font-weight: 400px;
-            transition: 0.6;
-        }
-    }
+    top: rem(-50);
 }

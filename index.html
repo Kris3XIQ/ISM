@@ -29,33 +29,32 @@
 </head>
 <body>
     <!-- Header -->
-    <header id="header__main" class="header">
-        <div class="header__title">
-            <a href="#">
-                <h1>ISM</h1>
-                <span class="header__subtitle">HOMECRAFTED JEWELRY</span>
-            </a>
+    <header class="header">
+        <div class="header__logo">
+            <a href="#">ISM</a>
         </div>
-        <nav class="navigation">
-            <ul class="navigation__items">
-                <li class="navigation__link"><a href="#">HOME</a></li>
-                <li class="navigation__link"><a href="#">PRODUCTS</a></li>
-            </ul>
-        </nav>
-        <fieldset
-            class="header__toggle toggle"
-            aria-label="theme toggle"
-            role="radiogroup"
-        >
-            <label for="dark">Dark Mode <span class="visually-hidden">On</span></label>
-            <div class="toggle__wrapper">
-                <input type="radio" name="theme" id="dark" />
-                <input type="radio" name="theme" id="light" />
-                <span aria-hidden="true" class="toggle__background"></span>
-                <span aria-hidden="true" class="toggle__button"></span>
-            </div>
-            <label for="light" class="visually-hidden">Dark Mode Off</label>
-        </fieldset>
+        <div class="header__wrapper">
+            <nav class="header__navigation">
+                <ul class="navigation__items">
+                    <li class="navigation__link"><a href="#">HOME</a></li>
+                    <li class="navigation__link"><a href="#">PRODUCTS</a></li>
+                </ul>
+            </nav>
+            <fieldset
+                class="header__toggle toggle"
+                aria-label="theme toggle"
+                role="radiogroup"
+            >
+                <label for="dark">Dark Mode <span class="visually-hidden">On</span></label>
+                <div class="toggle__wrapper">
+                    <input type="radio" name="theme" id="dark" />
+                    <input type="radio" name="theme" id="light" />
+                    <span aria-hidden="true" class="toggle__background"></span>
+                    <span aria-hidden="true" class="toggle__button"></span>
+                </div>
+                <label for="light" class="visually-hidden">Dark Mode Off</label>
+            </fieldset>
+        </div>
     </header>
 
     <!-- Slider-->
@@ -107,16 +106,12 @@
                                     <div class="form__group">
                                         <input type="input" class="form__field" placeholder="Email" name="email" id="email" maxlength="=256" required />
                                         <label for="name" class="form__label">EMAIL</label>
-                                        <input type="submit" value="&#xf1d8" datra-wait="Plesae wait..." class="far fa-paper-plane">
+                                        <input type="submit" value="&#xf1d8" data-wait="Plesae wait..." class="far fa-paper-plane">
                                     </div>
-                                    <!-- <input class="form__submit" type="submit" value="SUBSCRIBE" data-wait="Please wait...">
-                                    <i class="fa fa-paper-plane"></i> -->
                                 </form>
                             </div>
                         </div>
                         <div class="footer__row1__column2"></div>
-                        <!-- <div class="footer__row1__column3"></div>
-                        <div class="footer__row1__column4"></div> -->
                     </div>
                     <div class="footer__row2">
                         <div class="footer__row2__column1">
@@ -126,7 +121,7 @@
                             </div>
                         </div>
                         <div class="footer__row2__column2">
-                            <div class="footer__group__title">Can we help?</div>
+                            <div class="footer__group__title">About us</div>
                             <ul class="footer__about">
                                 <li><a target="_blank" href="#" class="footer__link">About</a></li>
                                 <li><a target="_blank" href="#" class="footer__link">Jobs</a></li>

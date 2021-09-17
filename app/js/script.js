@@ -55,10 +55,16 @@ for (let i = 0; i < radioButtons.length; i++) {
 }
 
 // Navbar Functionality
-const header = document.querySelector('header');
-window.addEventListener("scroll", function(){
-    header.classList.toggle("sticky", window.scrollY > 0)
-});
+const navbarScrollFunctionality = () => {
+    window.addEventListener("scroll", function(){
+        const header = document.querySelector('header');
+        const headerLogo = document.getElementsByClassName("header__logo");
+
+        header.classList.toggle("sticky", window.scrollY > 0);
+        window.scrollY > 0 ? (headerLogo[0].style.display = "none") : (headerLogo[0].style.display = "");
+    
+    });
+}
 
 // Slideshow Functionality
 const HomePageSlider = () => {
@@ -115,4 +121,5 @@ const scrollToTop = () => {
     document.documentElement.scrollTop = 0; //Chrome, Firefox, IE & Opera
 }
 
+navbarScrollFunctionality();
 HomePageSlider();
