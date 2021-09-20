@@ -13,10 +13,13 @@
     z-index: 100;
     &__logo {
         display: flex;
+        font-family: 'Playfair Display', serif;
+        font-size: rem(38);
+        letter-spacing: rem(8);
+        justify-content: center;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: rem(18);
+        width: 100%;
     }
     &__wrapper {
         display: flex;
@@ -29,11 +32,15 @@
         align-items: center;
     }
     &__navigation {
+        padding: 0;
+        margin: 0;
         .navigation__items {
             left: 0;
             position: absolute;
             right: 0;
             text-align: center;
+            padding: inherit;
+            margin: inherit;
             top: rem(70);
             .navigation__link {
                 display: inline-block;
@@ -45,6 +52,7 @@
             }
         }
     }
+}
 .header:hover {
     background: var(--background);
     transition: 0s;
