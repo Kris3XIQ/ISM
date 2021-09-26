@@ -44,11 +44,33 @@
             top: rem(70);
             .navigation__link {
                 display: inline-block;
+                position: relative;
                 font-size: rem(12);
                 height: rem(50);
                 padding: 0 10px;
                 text-transform: uppercase;
                 z-index: 10;
+            }
+            .navigation__link::after {
+                position: absolute;
+                bottom: 50%;
+                left: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 0%;
+                content: '.';
+                color: transparent;
+                background: var(--text-color);
+                height: rem(1);
+            }
+            .navigation__link:hover::after {
+                width: 100%;
+            }
+            .navigation__link,
+            .navigation__link:after,
+            .navigation__link:before {
+                transition: all .5s;
             }
         }
     }

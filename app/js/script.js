@@ -1,60 +1,6 @@
-// const darkButton = document.getElementById('dark');
-// const lightButton = document.getElementById('light');
-
-// const setColorMode = () => {
-//     if (localStorage.getItem('colorMode') == 'dark') {
-//         setDarkMode();
-//         darkButton.click();
-//     } else if (localStorage.getItem('colorMode') == 'light') {
-//         setLightMode();
-//         lightButton.click();
-//     }
-// };
-
-// const checkMode = () => {
-//     if (localStorage.getItem('colorMode') == null) {
-//         if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-//             lightButton.click();
-//         } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-//             darkButton.click();
-//         }
-//     }
-// };
-
-// const checkModeChange = () => {
-//     window
-//         .matchMedia('(prefers-color-scheme: dark)')
-//         .addEventListener('change', (event) => {
-//         checkMode();
-//     });
-// };
-
-// const setDarkMode = () => {
-//     document.querySelector('body').classList = 'dark';
-// };
-
-// const setLightMode = () => {
-//     document.querySelector('body').classList = 'light';
-// };
-
-// setColorMode();
-// checkMode();
-// checkModeChange();
-
-// const radioButtons = document.querySelectorAll('.toggle__wrapper input');
-// for (let i = 0; i < radioButtons.length; i++) {
-//     radioButtons[i].addEventListener('click', (event) => {
-//         if (darkButton.checked) {
-//             localStorage.setItem('colorMode', 'dark');
-//             setDarkMode();
-//         } else {
-//             localStorage.setItem('colorMode', 'light');
-//             setLightMode();
-//         }
-//     });
-// }
-
-// Navbar Functionality
+/*
+    => Navbar Functionality <=
+*/
 const navbarScrollFunctionality = () => {
     window.addEventListener("scroll", function(){
         const header = document.querySelector('header');
@@ -65,29 +11,11 @@ const navbarScrollFunctionality = () => {
     
     });
 }
-
-const checkModeChange = () => {
-    window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', (event) => {
-        checkMode();
-    });
-};
-
-const setColorMode = () => {
-    if (localStorage.getItem('colorMode') == 'dark') {
-        setDarkMode();
-        darkButton.click();
-    } else if (localStorage.getItem('colorMode') == 'light') {
-        setLightMode();
-        lightButton.click();
-    }
-};
-
+/* 
+    => Light/Dark --mode button, built into the navbar <=
+*/
 const switchLightDarkMode = () => {
     const body = document.querySelector('body');
-    const darkButton = document.getElementById('dark');
-    const lightButton = document.getElementById('light');
     const themeSwitch = document.getElementById('theme-switch-container');
     const userPreferDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const userPreferLightMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -113,51 +41,85 @@ const switchLightDarkMode = () => {
     }
 }
 
-// Slideshow Functionality
+/*
+    => Slideshow Functinality <=
+*/
 const HomePageSlider = () => {
-    const left = document.querySelector('.sliderarrow-prev');
-    const right = document.querySelector('.sliderarrow-next');
-    const slider = document.querySelector('.slideshow__slider');
+    const indicators = document.querySelectorAll('.slideshow__controlls__indicators ul .indicator');
+    let slides = document.querySelectorAll('#slideshow__slides .slide');
+    let currentSlide = 0;
 
-    const indicatorParent = document.querySelector('.slideshow__controller ul');
-    const indicators = document.querySelectorAll('.slideshow__controller li');
+    const nextSlide = () => {
+        goToSlide(currentSlide + 1);
+    }
+    const previousSlide = () => {
+        goToSlide(currentSlide - 1);
+    }
+
+    // Which slide to go to, denoted to s &
+    // Set Slider Interval and initiate the slideshow (to remove onload delay)
+    let initiateSlide = false;
+    let slideInterval;
+    const goToSlide = (s) => {
+        slides[currentSlide].className = 'slide';
+        indicators[currentSlide].className = 'indicator';
+        currentSlide = (s + slides.length) % slides.length;
+        slides[currentSlide].className = 'slide active';
+        indicators[currentSlide].className = 'indicator active';
+        if (!initiateSlide) {
+            slideInterval = setInterval(nextSlide, 4000);
+            initiateSlide = true;
+        }
+    }
+    
+    if (!initiateSlide) {
+        goToSlide(currentSlide);
+    }
+
+    // Autoplay play/pause functionality
+    const autoplay = document.querySelector('.slideshow__controlls__autoplay .autoplay');
+    let autorun = true;
+    autoplay.addEventListener('click', () => {
+        if (autorun){ 
+            autoplay.classList.remove("playing");
+            autoplay.classList.add("paused");
+            pauseSlideshow(); 
+        } else {
+            autoplay.classList.remove("paused");
+            autoplay.classList.add("playing");
+            playSlideshow();
+        }
+    });
+
+    const pauseSlideshow = () => {
+        autorun = false;
+        clearInterval(slideInterval);
+    }
+    const playSlideshow = () => {
+        autorun = true;
+        slideInterval = setInterval(nextSlide, 4000);
+    }
+
+    // Slideshow button(arrow) functionality
+    let previous_btn = document.querySelector('.slideshow__controlls__arrows .previous');
+    let next_btn = document.querySelector('.slideshow__controlls__arrows .next');
+    next_btn.onclick = () => {
+        pauseSlideshow();
+        nextSlide();
+     };
+    previous_btn.onclick = () => {
+        pauseSlideshow();
+        previousSlide();
+    };
+
     let index = 0;
-
     indicators.forEach((indicator, i) => {
         indicator.addEventListener('click', () => {
-            console.log(index)
-            document.querySelector('.slideshow__selected').classList.remove('slideshow__selected');
-            indicator.classList.add('slideshow__selected');
-            //slider.style.transform = 'translateX(' + (i) * - 100 + '%)';
             index = i;
-            // Sort the right image ontop
-            document.querySelector('.slideshow__image').classList.remove('slideshow__image')
-            slider.children[index].classList.add('slideshow__image');
+            goToSlide(index)
+            document.querySelector('.indicator .active').classList.remove('active');
+            indicator.classList.add('active');
         });
-    });
-
-    left.addEventListener('click', function() {
-        console.log(index)
-        index = (index > 0) ? index - 1 : 2;
-        // Sort the right image ontop
-        document.querySelector('.slideshow__image').classList.remove('slideshow__image');
-        slider.children[index].classList.add('slideshow__image');
-        // Sort the controller to match current image
-        document.querySelector('.slideshow__selected').classList.remove('slideshow__selected');
-        indicatorParent.children[index].classList.add('slideshow__selected');
-        //slider.style.transform = 'translateX(' + (index) * - 33.33 + '%)';
-    });
-
-    right.addEventListener('click', function() {
-        console.log(index)
-        index = (index < 3 - 1) ? index + 1 : 0;
-        // Sort the right image ontop
-        document.querySelector('.slideshow__image').classList.remove('slideshow__image');
-        slider.children[index].classList.add('slideshow__image');
-        // Sort the controller to match current image
-        document.querySelector('.slideshow__selected').classList.remove('slideshow__selected');
-        indicatorParent.children[index].classList.add('slideshow__selected');
-        //slider.style.transform = 'translateX(' + (index) * - 33.33 + '%)';
     });
 }
 

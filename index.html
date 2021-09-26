@@ -49,47 +49,32 @@
                     <li class="navigation__link"><a href="#">About</a></li>
                 </ul>
             </nav>
-            <!-- <fieldset
-                class="header__toggle toggle"
-                aria-label="theme toggle"
-                role="radiogroup"
-            >
-                <label for="dark">Dark Mode <span class="visually-hidden">On</span></label>
-                <div class="toggle__wrapper">
-                    <input type="radio" name="theme" id="dark" />
-                    <input type="radio" name="theme" id="light" />
-                    <span aria-hidden="true" class="toggle__background"></span>
-                    <span aria-hidden="true" class="toggle__button"></span>
-                </div>
-                <label for="light" class="visually-hidden">Dark Mode Off</label>
-            </fieldset> -->
         </div>
     </header>
 
     <!-- Slider-->
-    <div class="slideshow__container">
-        <div class="slideshow__carousel">
-            <div class="slideshow__slider">
-                <section class="slideshow__image"><img src="media/images/img1.jpg"></section>
-                <section><img src="media/images/img2.jpg"></section>
-                <section><img src="media/images/img3.jpg"></section>
+    <div class="slideshow">
+        <div class="slideshow__controlls">
+            <div class="slideshow__controlls__autoplay">
+                <div class="autoplay playing"></div>
             </div>
-            <div class="slideshow__controller">
-                <div class="sliderarrow-next">
-                    <div class="sliderarrow-next__top"></div>
-                    <div class="sliderarrow-next__bot"></div>
-                </div>
-                <div class="sliderarrow-prev">
-                    <div class="sliderarrow-prev__top"></div>
-                    <div class="sliderarrow-prev__bot"></div>
-                </div>
+            <div class="slideshow__controlls__arrows">
+                <div class="arrow previous"></div>
+                <div class="arrow next"></div>
+            </div>
+            <div class="slideshow__controlls__indicators">
                 <ul>
-                    <li class="slideshow__selected"></li>
-                    <li></li>
-                    <li></li>
+                    <li class="indicator"></li>
+                    <li class="indicator"></li>
+                    <li class="indicator"></li>
                 </ul>
             </div>
         </div>
+        <ul id="slideshow__slides" class="slideshow__slides">
+            <li class="slide"></li>
+            <li class="slide"></li>
+            <li class="slide"></li>
+        </ul>
     </div>
 
     <!-- Main Content, including sections -->
