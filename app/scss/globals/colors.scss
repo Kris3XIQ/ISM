@@ -16,6 +16,7 @@
     // Dark Theme
     --dark-bg: 	hsl(0, 0%, 7%);
     --dark-bg2: hsl(0, 0%, 5%);
+    --dark-bg-with-opacity: hsl(0, 0%, 7%);
     --dark-top-bg: hsl(232, 19%, 15%);
     --dark-card: hsl(228, 28%, 20%);
     --dark-card-hover: hsl(228, 25%, 27%);
@@ -30,7 +31,7 @@
     --light-card-hover: hsl(228, 33%, 91%);
     --light-text1: hsl(230, 12%, 44%);
     --light-text2: hsl(230, 17%, 14%);
-    --light-accent-color1: ;
+    --light-accent-color1: hsl(359, 100%, 62%);
     // Rest
     --background: var(--light-bg);
     --text-color: var(--light-text2);
@@ -93,6 +94,7 @@ body.dark {
     --accent-color1: var(--dark-accent-color1);
     --background: var(--dark-bg);
     --background2: var(--dark-bg2);
+    --backgroundwopacity: var()
     --text-color: var(--dark-text2);
     --text-color2: var(--dark-text1);
     --card-bg: var(--dark-card);

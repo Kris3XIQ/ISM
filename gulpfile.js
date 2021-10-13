@@ -1,15 +1,14 @@
 // Initialize modules
-const { src, dest, watch, series } = require('gulp');
+const { src, dest, watch, series, task } = require('gulp');
+const phpConnect = require('gulp-connect-php');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const babel = require('gulp-babel');
 const terser = require('gulp-terser');
-const browsersync = require('browser-sync');
-
-// Use dart-sass for @use
-//sass.compiler = require('dart-sass');
+const GulpPostCss = require('gulp-postcss');
+const browserSync = require('browser-sync');
 
 // Sass Task
 function scssTask() {
@@ -28,33 +27,52 @@ function jsTask() {
 }
 
 // Browsersync
-function browserSyncServe(cb) {
-    browsersync.init({
-        server: {
-            baseDir: '.',
-        },
-        notify: {
-            styles: {
-                top: 'auto',
-                bottom: '0',
-            },
-        },
-    });
-    cb();
-}
+// function browserSyncServe(cb) {
+//     browsersync.init({
+//         server: {
+//             baseDir: '.',
+//         },
+//         notify: {
+//             styles: {
+//                 top: 'auto',
+//                 bottom: '0',
+//             },
+//         },
+//     });
+//     cb();
+// }
+
 function browserSyncReLoad(cb) {
-    browsersync.reload();
+    browserSync.reload();
     cb();
 }
 
-// Watch Task
+// Server Task
+function serverTask() {
+    phpConnect.server({}, function (){
+        browserSync({
+            proxy: '127.0.0.1:8000'
+        });
+    });
+    //  watch('*.php').on('change', function () {
+    //     browserSync.reload();
+    // });
+    // watch(
+    //     ['app/scss/**/*.scss','app/**/*.js', '*.php'],
+    //     series(scssTask, jsTask, browserSyncReLoad)
+    // );
+    watchTask();
+};
+
+//Watch Task
 function watchTask() {
-    watch('*.html', browserSyncReLoad);
+    //watch('*.html', browserSyncReLoad);
+    // watch('*.php', browserSyncReLoad);
     watch(
-        ['app/scss/**/*.scss', 'app/**/*.js'],
+        ['app/scss/**/*.scss', 'app/**/*.js', 'app/html/**/*.php', '*.php'],
         series(scssTask, jsTask, browserSyncReLoad)
     );
 }
 
 // Default Gulp Task
-exports.default = series(scssTask, jsTask, browserSyncServe, watchTask);
+exports.default = series(scssTask, jsTask, serverTask, watchTask);

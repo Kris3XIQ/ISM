@@ -26,7 +26,6 @@
         align-items: center;
         @include breakpoint(xlarge) {}
     }
-
     @include breakpoint(medium) {
         justify-content: space-between;
         align-items: center;
@@ -121,6 +120,9 @@
             }
         }
     }
+    &__mode-switch:hover {
+        cursor: pointer;
+    }
 }
 .header:hover {
     background: var(--background);
@@ -130,7 +132,6 @@
     background: var(--background);
     top: rem(-50);
 }
-
 
 // Header Light/Dark-mode switch
 
